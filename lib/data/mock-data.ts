@@ -1221,9 +1221,80 @@ export const products: Product[] = [
     inStock: true,
     stockQuantity: 100,
   },
+  // Beerfarm - Margaret River products
+  {
+    id: '35',
+    breweryId: '50',
+    name: 'Beerfarm Original Branded Tee',
+    slug: 'beerfarm-original-tee',
+    description: 'Classic Beerfarm branded t-shirt in premium cotton.',
+    category: 'apparel',
+    type: 'tshirt',
+    price: 48.00, // Brewery: $40.00, Our price: $48.00 (20% markup)
+    images: [],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Black', 'White', 'Navy'],
+    inStock: true,
+    stockQuantity: 140,
+  },
+  {
+    id: '36',
+    breweryId: '50',
+    name: 'Beerfarm Hazy Pale Orange Bucket Hat',
+    slug: 'beerfarm-hazy-bucket-hat',
+    description: 'Limited edition orange bucket hat featuring Beerfarm Hazy Pale branding.',
+    category: 'apparel',
+    type: 'hat',
+    price: 45.60, // Brewery: $38.00, Our price: $45.60 (20% markup)
+    images: [],
+    colors: ['Orange'],
+    inStock: true,
+    stockQuantity: 85,
+  },
+  {
+    id: '37',
+    breweryId: '50',
+    name: 'Beerfarm Black Bucket Hat',
+    slug: 'beerfarm-black-bucket-hat',
+    description: 'Classic black bucket hat with embroidered Beerfarm logo.',
+    category: 'apparel',
+    type: 'hat',
+    price: 45.60, // Brewery: $38.00, Our price: $45.60 (20% markup)
+    images: [],
+    colors: ['Black'],
+    inStock: true,
+    stockQuantity: 100,
+  },
+  {
+    id: '38',
+    breweryId: '50',
+    name: 'Beerfarm Black Cap',
+    slug: 'beerfarm-black-cap',
+    description: 'Feature Beerfarm brand black cap with adjustable strap.',
+    category: 'apparel',
+    type: 'hat',
+    price: 42.00, // Brewery: $35.00, Our price: $42.00 (20% markup)
+    images: [],
+    colors: ['Black'],
+    inStock: true,
+    stockQuantity: 120,
+  },
+  {
+    id: '39',
+    breweryId: '50',
+    name: 'Beerfarm Stubby Holder',
+    slug: 'beerfarm-stubby-holder',
+    description: 'Insulated Beerfarm stubby holder to keep your beers cold.',
+    category: 'accessories',
+    type: 'stubby-holder',
+    price: 14.40, // Brewery: $12.00, Our price: $14.40 (20% markup)
+    images: [],
+    inStock: true,
+    stockQuantity: 200,
+  },
 ];
 
-// NOTE: This is a starter database of 67 breweries with 34 products.
+// NOTE: This is a starter database of 67 breweries with 39 products.
 // Total Australian breweries: ~500-700
 // This represents major breweries from all states.
 // More breweries and products can be added following the same structure.

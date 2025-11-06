@@ -122,7 +122,7 @@ export default function Home() {
                     <div className="text-green-100">Breweries</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">34</div>
+                    <div className="text-3xl font-bold">39</div>
                     <div className="text-green-100">Products</div>
                   </div>
                   <div>
