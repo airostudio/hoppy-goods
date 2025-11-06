@@ -40,7 +40,7 @@ export type MerchCategory =
 
 export type ApparelType = 'tshirt' | 'hoodie' | 'hat' | 'beanie' | 'jacket' | 'tank-top';
 export type GlasswareType = 'pint-glass' | 'tulip-glass' | 'pilsner-glass' | 'mug' | 'growler';
-export type AccessoryType = 'keychain' | 'sticker' | 'patch' | 'pin' | 'bottle-opener';
+export type AccessoryType = 'keychain' | 'sticker' | 'patch' | 'pin' | 'bottle-opener' | 'tote' | 'stubby-holder' | 'cooler';
 export type HomegoodsType = 'coaster' | 'sign' | 'taphandle' | 'flag' | 'poster';
 export type CollectibleType = 'limited-edition' | 'vintage' | 'memorabilia';
 

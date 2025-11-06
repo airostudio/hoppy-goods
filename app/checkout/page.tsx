@@ -28,7 +28,7 @@ export default function CheckoutPage() {
   const [orderPlaced, setOrderPlaced] = useState(false);
 
   const subtotal = getTotal();
-  const shipping = 12.99;
+  const shipping = 15.00;
   const tax = subtotal * 0.08;
   const total = subtotal + shipping + tax;
 

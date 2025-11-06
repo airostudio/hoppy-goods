@@ -157,7 +157,7 @@ export default function CartPage() {
                 </div>
                 <div className="flex justify-between text-sm text-gray-600">
                   <span>Shipping</span>
-                  <span>Calculated at checkout</span>
+                  <span>$15.00 flat rate</span>
                 </div>
                 <div className="flex justify-between text-sm text-gray-600">
                   <span>Tax</span>

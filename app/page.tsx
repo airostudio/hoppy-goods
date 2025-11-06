@@ -102,7 +102,7 @@ export default function Home() {
             Explore Australian Craft Breweries
           </h2>
           <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            Discover authentic merchandise from 10 craft breweries across Australia.
+            Discover authentic merchandise from 67 craft breweries across Australia.
             From Sydney to Perth, Melbourne to Brisbane - shop local brewery pride.
           </p>
           <div className="max-w-4xl mx-auto">
@@ -118,15 +118,15 @@ export default function Home() {
                 </h3>
                 <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto text-white">
                   <div>
-                    <div className="text-3xl font-bold">10</div>
+                    <div className="text-3xl font-bold">67</div>
                     <div className="text-green-100">Breweries</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">26</div>
+                    <div className="text-3xl font-bold">30</div>
                     <div className="text-green-100">Products</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">7</div>
+                    <div className="text-3xl font-bold">8</div>
                     <div className="text-green-100">States</div>
                   </div>
                 </div>

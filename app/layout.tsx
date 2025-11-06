@@ -4,8 +4,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Hoppy Goods - Beer Merchandise Worldwide",
-  description: "Shop authentic brewery merchandise from craft breweries around the world. T-shirts, glassware, accessories, and more.",
+  title: "Hoppy Goods - Australian Brewery Merchandise",
+  description: "Shop authentic brewery merchandise from 67 craft breweries across Australia. T-shirts, apparel, accessories, and more from NSW, QLD, SA, VIC, WA, TAS, ACT & NT.",
 };
 
 export default function RootLayout({
