@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ProductCard from '@/components/product-card';
 import { getCountries, getFeaturedProducts } from '@/lib/utils';
-import { Globe, TrendingUp, MapPin } from 'lucide-react';
+import { Beer, TrendingUp, MapPin } from 'lucide-react';
 
 export default function Home() {
   const featuredProducts = getFeaturedProducts();
@@ -10,26 +10,27 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-amber-700 to-amber-900 text-white py-20">
+      <section className="bg-gradient-to-r from-green-700 to-amber-600 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
+            <div className="text-6xl mb-4">🇦🇺</div>
             <h1 className="text-5xl font-bold mb-6">
-              Brewery Merchandise from Around the World
+              Australian Brewery Merchandise
             </h1>
-            <p className="text-xl mb-8 text-amber-100">
-              Discover authentic merch from craft breweries worldwide. T-shirts,
-              glassware, accessories, and more from your favorite beer makers.
+            <p className="text-xl mb-8 text-green-50">
+              Shop authentic merch from Australia's finest craft breweries. T-shirts,
+              glassware, accessories, and more from top breweries across NSW, QLD, SA, VIC, WA, TAS, and ACT.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/browse"
-                className="bg-white text-amber-900 px-8 py-3 rounded-full font-semibold hover:bg-amber-50 transition"
+                className="bg-white text-green-800 px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition"
               >
-                Browse by Location
+                Browse by State
               </Link>
               <Link
                 href="/products"
-                className="bg-amber-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-amber-700 transition border-2 border-white"
+                className="bg-amber-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-amber-600 transition border-2 border-white"
               >
                 View All Products
               </Link>
@@ -43,13 +44,13 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="inline-block p-4 bg-amber-100 rounded-full mb-4">
-                <Globe className="w-8 h-8 text-amber-900" />
+              <div className="inline-block p-4 bg-green-100 rounded-full mb-4">
+                <Beer className="w-8 h-8 text-green-800" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Global Collection</h3>
+              <h3 className="text-xl font-bold mb-2">Australian Breweries</h3>
               <p className="text-gray-600">
-                Merchandise from breweries across the USA, UK, Germany, Belgium,
-                and beyond
+                From Young Henrys to Mountain Culture, Balter to Little Creatures -
+                Australia's best craft breweries
               </p>
             </div>
             <div className="text-center">
@@ -58,16 +59,16 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-2">Authentic Merch</h3>
               <p className="text-gray-600">
-                Official brewery merchandise sourced directly from the breweries
+                Official brewery merchandise purchased directly from Australian breweries
               </p>
             </div>
             <div className="text-center">
-              <div className="inline-block p-4 bg-amber-100 rounded-full mb-4">
-                <MapPin className="w-8 h-8 text-amber-900" />
+              <div className="inline-block p-4 bg-green-100 rounded-full mb-4">
+                <MapPin className="w-8 h-8 text-green-800" />
               </div>
               <h3 className="text-xl font-bold mb-2">Easy Navigation</h3>
               <p className="text-gray-600">
-                Browse by country, state, and city to find your local favorites
+                Browse by state and city to discover breweries and merch near you
               </p>
             </div>
           </div>
@@ -78,10 +79,10 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Featured Products</h2>
+            <h2 className="text-3xl font-bold">Featured Australian Brewery Merch</h2>
             <Link
               href="/featured"
-              className="text-amber-700 hover:text-amber-900 font-semibold"
+              className="text-green-700 hover:text-green-900 font-semibold"
             >
               View All →
             </Link>
@@ -94,37 +95,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Browse by Country */}
+      {/* Browse by State - Featured */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Browse by Country
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            Explore Australian Craft Breweries
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+            Discover authentic merchandise from 10 craft breweries across Australia.
+            From Sydney to Perth, Melbourne to Brisbane - shop local brewery pride.
+          </p>
+          <div className="max-w-4xl mx-auto">
             {countries.map((country) => (
               <Link
                 key={country.id}
                 href={`/browse/${country.slug}`}
-                className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-lg hover:shadow-lg transition text-center group"
+                className="block bg-gradient-to-r from-green-700 via-amber-500 to-amber-600 p-10 rounded-xl hover:shadow-2xl transition text-center group"
               >
-                <div className="text-4xl mb-2">🌍</div>
-                <h3 className="font-semibold text-gray-900 group-hover:text-amber-700">
-                  {country.name}
+                <div className="text-7xl mb-4">🇦🇺</div>
+                <h3 className="font-bold text-3xl text-white group-hover:text-yellow-100 transition mb-3">
+                  Explore Australian Breweries
                 </h3>
+                <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto text-white">
+                  <div>
+                    <div className="text-3xl font-bold">10</div>
+                    <div className="text-green-100">Breweries</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold">26</div>
+                    <div className="text-green-100">Products</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold">7</div>
+                    <div className="text-green-100">States</div>
+                  </div>
+                </div>
+                <div className="mt-6 inline-block bg-white text-green-800 px-6 py-2 rounded-full font-semibold group-hover:bg-yellow-100 transition">
+                  Browse All States →
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Brewery Highlights */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center">Featured Australian Breweries</h2>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-600">
+              <div className="text-4xl mb-3">🍺</div>
+              <h3 className="font-bold text-lg mb-2">Mountain Culture</h3>
+              <p className="text-sm text-gray-600 mb-1">Blue Mountains, NSW</p>
+              <p className="text-xs text-green-700">Australia's #1 Rated Brewery</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-amber-500">
+              <div className="text-4xl mb-3">🏄</div>
+              <h3 className="font-bold text-lg mb-2">Balter Brewing</h3>
+              <p className="text-sm text-gray-600 mb-1">Currumbin, QLD</p>
+              <p className="text-xs text-amber-700">Founded by Aussie Surf Legends</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
+              <div className="text-4xl mb-3">🌊</div>
+              <h3 className="font-bold text-lg mb-2">Stone & Wood</h3>
+              <p className="text-sm text-gray-600 mb-1">Byron Bay, NSW</p>
+              <p className="text-xs text-blue-700">Home of Pacific Ale</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 bg-amber-900 text-white">
+      <section className="py-16 bg-gradient-to-r from-amber-700 to-amber-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Looking for Something Specific?
           </h2>
           <p className="text-xl mb-8 text-amber-100">
-            Search our entire collection of brewery merchandise
+            Search our entire collection of Australian brewery merchandise
           </p>
           <Link
             href="/search"

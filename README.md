@@ -1,39 +1,54 @@
-# Hoppy Goods - Beer Merchandise Webstore
+# Hoppy Goods - Australian Brewery Merchandise Webstore
 
-A modern e-commerce platform for brewery merchandise from around the world. Browse and shop authentic merch organized by country, state, area, and brewery.
+A modern e-commerce platform for Australian brewery merchandise. Browse and shop authentic merch from craft breweries across all Australian states and territories.
+
+## 🇦🇺 Australian Focus
+
+This webstore specializes in merchandise from Australia's finest craft breweries, including:
+
+- **Young Henrys** (Newtown, NSW)
+- **Stone & Wood Brewing** (Byron Bay, NSW)
+- **Mountain Culture Beer Co** (Blue Mountains, NSW) - Australia's #1 Rated Brewery
+- **Balter Brewing** (Currumbin, QLD) - Founded by Aussie surf legends
+- **Green Beacon Brewing** (Brisbane, QLD)
+- **Pirate Life Brewing** (Port Adelaide, SA)
+- **Big Shed Brewing** (Adelaide, SA)
+- **Moon Dog Craft Brewery** (Collingwood, VIC)
+- **Little Creatures Brewing** (Fremantle, WA)
+- **BentSpoke Brewing Co** (Braddon, ACT)
 
 ## Features
 
-### 🌍 Geographic Navigation
-- Browse breweries by Country → State → Area
-- Discover local breweries and their merchandise
-- Support for international locations (USA, UK, Germany, Belgium, Czech Republic, and more)
+### 🗺️ Geographic Navigation
+- Browse by Australian State → City → Brewery
+- All 7 states/territories covered (NSW, QLD, SA, VIC, WA, TAS, ACT)
+- 13 cities/areas from Sydney to Perth, Melbourne to Brisbane
 
 ### 🛍️ E-Commerce Features
-- Product catalog with detailed pages
-- Shopping cart with persistent storage
+- 26 products across 10 breweries
+- Shopping cart with persistent storage (Zustand)
 - Complete checkout flow
-- Size and color selection for products
+- Size and color selection
 - Real-time stock tracking
 - Featured products showcase
 
 ### 📦 Product Categories
-- **Apparel**: T-shirts, hoodies, hats, beanies, jackets, tank tops
-- **Glassware**: Pint glasses, tulip glasses, pilsner glasses, mugs, growlers
-- **Accessories**: Keychains, stickers, patches, pins, bottle openers
-- **Home Goods**: Coasters, signs, tap handles, flags, posters
-- **Collectibles**: Limited editions, vintage items, memorabilia
+- **Apparel**: T-shirts, hoodies, hats, beanies, jackets, cycling jerseys
+- **Glassware**: Pint glasses, tulip glasses, mugs
+- **Accessories**: Tinnie coolers, stubby holders, caps, bottle openers
+- **Home Goods**: Coasters sets
+- **Collectibles**: Limited editions
 
 ### 🎨 User Interface
-- Responsive design (mobile, tablet, desktop)
-- Clean, modern UI with Tailwind CSS
-- Intuitive navigation and search
-- Product filtering and categorization
+- Responsive design (mobile-first)
+- Australian-themed color scheme (green & gold)
+- Intuitive state-based navigation
+- Product search functionality
 
 ### 🔧 Admin Panel
-- Dashboard with key statistics
+- Dashboard with brewery statistics
 - Product management interface
-- Brewery and location overview
+- State and city overview
 - Inventory tracking
 
 ## Tech Stack
@@ -43,7 +58,7 @@ A modern e-commerce platform for brewery merchandise from around the world. Brow
 - **Styling**: Tailwind CSS
 - **State Management**: Zustand (shopping cart)
 - **Icons**: Lucide React
-- **Data**: Mock data (easily replaceable with API/database)
+- **Data**: Mock data structure (ready for real brewery data)
 
 ## Getting Started
 
@@ -78,6 +93,92 @@ npm run build
 npm start
 ```
 
+## 📸 Adding Real Images from Brewery Websites
+
+The webstore is currently set up with placeholder emoji images. Here's how to add real product images from brewery websites:
+
+### Current Image Structure
+
+Products have an `images` array field:
+```typescript
+{
+  id: '1',
+  name: 'Young Henrys Classic T-Shirt',
+  images: [], // Currently empty or with placeholder
+  // ... other fields
+}
+```
+
+### Method 1: Direct URLs from Brewery Websites
+
+If brewery websites allow hotlinking (check their terms of service):
+
+1. Visit the brewery's merchandise page
+2. Right-click on a product image → "Copy Image Address"
+3. Add the URL to the product's `images` array in `lib/data/mock-data.ts`
+
+```typescript
+{
+  id: '1',
+  breweryId: '1',
+  name: 'Young Henrys Classic T-Shirt',
+  images: ['https://younghenrys.com/path/to/tshirt-image.jpg'],
+  // ... other fields
+}
+```
+
+### Method 2: Download and Host Locally
+
+For better performance and reliability:
+
+1. **Download images** from brewery websites (with permission)
+2. **Optimize images** (resize, compress)
+3. **Save to** `/public/products/` directory:
+   ```
+   /public/products/
+   ├── young-henrys-tshirt.jpg
+   ├── balter-xpa-tshirt.jpg
+   ├── stone-wood-hoodie.jpg
+   └── ...
+   ```
+4. **Update product data**:
+   ```typescript
+   images: ['/products/young-henrys-tshirt.jpg']
+   ```
+
+### Method 3: Use a CDN (Recommended for Production)
+
+1. Upload images to a CDN (Cloudinary, AWS S3, Vercel Blob, etc.)
+2. Reference CDN URLs in product data:
+   ```typescript
+   images: ['https://your-cdn.com/products/young-henrys-tshirt.jpg']
+   ```
+
+### Brewery Merchandise Websites
+
+Here are the official merchandise stores for research:
+
+- **Balter**: https://shop.balter.com.au/
+- **Mountain Culture**: https://mountainculture.com.au/collections/merch
+- **Stone & Wood**: https://stoneandwood.com.au/ (Shop section)
+- **Young Henrys**: https://younghenrys.com/shop
+- **Pirate Life**: https://shop.piratelife.com.au/
+- **BentSpoke**: https://www.bentspokebrewing.com.au/
+
+**Important Legal Notes:**
+- Always obtain permission before using brewery images
+- Respect copyright and trademark laws
+- Consider partnering with breweries for official image access
+- Some breweries may provide image assets for retailers
+
+### Image Best Practices
+
+- **Format**: JPG for photos, PNG for logos with transparency
+- **Size**: 800x800px to 1200x1200px for product images
+- **Optimization**: Use tools like TinyPNG or ImageOptim
+- **Alt text**: Currently uses emoji placeholders; update for accessibility
+- **Multiple images**: Products support multiple images (different angles)
+
 ## Project Structure
 
 ```
@@ -86,140 +187,132 @@ hoppy-goods/
 │   ├── about/                    # About page
 │   ├── admin/                    # Admin dashboard
 │   ├── brewery/[slug]/          # Individual brewery pages
-│   ├── browse/                   # Geographic navigation pages
-│   │   ├── [country]/           # Country-level pages
-│   │   │   ├── [state]/         # State-level pages
-│   │   │   │   └── [area]/      # Area-level pages
+│   ├── browse/                   # Geographic navigation
+│   │   └── [country]/           # Australia
+│   │       └── [state]/         # NSW, QLD, SA, VIC, etc.
+│   │           └── [area]/      # Sydney, Brisbane, etc.
 │   ├── cart/                     # Shopping cart
 │   ├── checkout/                 # Checkout flow
-│   ├── featured/                 # Featured products
 │   ├── product/[slug]/          # Individual product pages
 │   ├── products/                 # All products catalog
-│   ├── search/                   # Product search
-│   ├── layout.tsx               # Root layout with header/footer
-│   └── page.tsx                 # Homepage
-├── components/                   # Reusable React components
+│   └── search/                   # Product search
+├── components/                   # Reusable components
+│   ├── header.tsx               # Site header
 │   ├── footer.tsx               # Site footer
-│   ├── header.tsx               # Site header with navigation
 │   └── product-card.tsx         # Product display card
-├── lib/                         # Utility functions and data
+├── lib/                         # Utilities and data
 │   ├── data/
-│   │   └── mock-data.ts        # Sample data (countries, breweries, products)
+│   │   └── mock-data.ts        # Australian brewery data
 │   ├── store/
 │   │   └── cart-store.ts       # Zustand cart store
 │   └── utils.ts                 # Helper functions
-├── types/                        # TypeScript type definitions
-│   └── index.ts                 # Core types (Product, Brewery, etc.)
-└── README.md                     # This file
+├── types/                        # TypeScript definitions
+│   └── index.ts                 # Core types
+└── public/                       # Static assets
+    └── products/                # Product images (add here)
 ```
 
 ## Data Structure
 
-### Geographic Hierarchy
+### Australian Geographic Hierarchy
 ```
-Country → State/Region → Area/City → Brewery → Products
+Australia → State/Territory → City/Area → Brewery → Products
 ```
 
-### Core Types
+### Example: Adding a New Brewery
 
-- **Country**: Top-level geographic entity
-- **State**: State, province, or region within a country
-- **Area**: City or local area within a state
-- **Brewery**: Individual brewery with merchandise
-- **Product**: Merchandise item from a brewery
-
-### Product Schema
-
-Each product includes:
-- Basic info (name, description, price)
-- Category and type
-- Inventory (stock quantity, availability)
-- Options (sizes, colors)
-- Images (placeholder support)
-- Brewery association
-
-## Customization
-
-### Adding New Data
-
-Replace the mock data in `lib/data/mock-data.ts` with:
-- Database queries (PostgreSQL, MongoDB, etc.)
-- API calls to external services
-- CMS integration (Contentful, Strapi, etc.)
-
-### Styling
-
-The project uses Tailwind CSS. Customize colors in `tailwind.config.ts`:
-
+1. Add to `areas` array in `lib/data/mock-data.ts`:
 ```typescript
-theme: {
-  extend: {
-    colors: {
-      // Change amber to your brand color
-      amber: { ... }
-    }
-  }
+{ id: '14', name: 'Hobart', slug: 'hobart', stateId: '6' }, // Tasmania
+```
+
+2. Add brewery:
+```typescript
+{
+  id: '11',
+  name: 'Moo Brew',
+  slug: 'moo-brew',
+  description: 'Tasmania\'s iconic craft brewery.',
+  areaId: '14',
+  website: 'https://moobrew.com.au',
+  established: 2005,
 }
 ```
 
-### Payment Integration
-
-The checkout page (`app/checkout/page.tsx`) is ready for payment integration:
-- Stripe
-- PayPal
-- Square
-- Custom payment processor
+3. Add products with real images:
+```typescript
+{
+  id: '27',
+  breweryId: '11',
+  name: 'Moo Brew T-Shirt',
+  slug: 'moo-brew-tshirt',
+  description: 'Classic Moo Brew design.',
+  category: 'apparel',
+  type: 'tshirt',
+  price: 39.00,
+  images: ['/products/moo-brew-tshirt.jpg'], // Your downloaded image
+  sizes: ['S', 'M', 'L', 'XL'],
+  inStock: true,
+  stockQuantity: 50,
+}
+```
 
 ## Business Model
 
-The webstore operates on an **ad hoc purchasing model**:
+**Ad Hoc Purchasing:**
+1. Customer orders through website
+2. You purchase from brewery's online store
+3. Ship to customer (or arrange dropshipping)
+4. Your markup covers costs + profit
 
-1. Customer places order through the website
-2. You purchase the item directly from the brewery
-3. Ship to customer (or use dropshipping if available)
-4. Mark up pricing covers your costs and profit margin
-
-### Considerations
-
-- Build relationships with breweries for bulk/wholesale pricing
-- Consider shipping times and set customer expectations
-- Handle international shipping and customs
-- Implement proper inventory tracking
-- Consider holding popular items in stock
+**Pricing:**
+- Products priced in AUD
+- Free shipping over $100 (recommended)
+- Consider GST implications
 
 ## Future Enhancements
 
+- [ ] Add real product images from brewery websites
+- [ ] Implement actual payment processing (Stripe/PayPal)
 - [ ] User authentication and accounts
 - [ ] Order history and tracking
-- [ ] Wishlist functionality
-- [ ] Product reviews and ratings
-- [ ] Newsletter signup
-- [ ] Social media integration
+- [ ] Email notifications (order confirmations)
+- [ ] Brewery partnerships for official access
 - [ ] Real-time inventory sync with breweries
-- [ ] Multi-currency support
-- [ ] Internationalization (i18n)
-- [ ] SEO optimization
-- [ ] Analytics integration
-- [ ] Email notifications
-- [ ] Advanced filtering (price range, etc.)
+- [ ] Product reviews and ratings
+- [ ] Wishlist functionality
+- [ ] Newsletter/mailing list
+- [ ] SEO optimization for Australian searches
+- [ ] Google Analytics/tracking
+- [ ] Multi-currency (AUD, USD)
 
-## Legal Considerations
+## Legal Considerations for Australia
 
-- Obtain proper permissions from breweries to sell their merchandise
-- Comply with trademark and copyright laws
-- Follow e-commerce regulations in your jurisdiction
-- Implement proper terms of service and privacy policy
-- Age verification for alcohol-related merchandise (if required)
-- Handle data protection (GDPR, CCPA, etc.)
+- **Obtain brewery permissions** for using logos and images
+- **Trademark compliance**: Respect brewery trademarks
+- **ABN/ACN**: Register your business
+- **GST**: Register if turnover exceeds threshold
+- **Consumer Law**: Comply with ACL (Australian Consumer Law)
+- **Privacy**: Handle customer data per Privacy Act
+- **Terms of Service**: Create clear T&Cs
+- **Refund Policy**: Comply with Australian consumer guarantees
 
-## License
+## Brewery Research Sources
 
-This project is provided as-is for educational and commercial use.
+- [Man of Many - Best Australian Craft Breweries](https://manofmany.com/lifestyle/best-australian-craft-breweries)
+- [GABS Hottest 100 Australian Craft Beers](https://www.gabsfestival.com/hottest100)
+- Individual brewery websites (linked above)
+- Beer Cartel, Purvis Beer (retailers for product research)
 
-## Support
+## Support & Development
 
-For questions or issues, please open a GitHub issue or contact the development team.
+For questions or issues:
+- Check brewery websites for official merchandise
+- Review Next.js documentation for technical issues
+- Australian craft beer community forums for brewery info
 
 ---
 
-Built with ❤️ for craft beer enthusiasts worldwide
+Built with 🍺 for Australian craft beer enthusiasts
+
+**Note**: This is a prototype webstore. Prices, images, and availability are sample data. Contact breweries directly for actual merchandise purchasing and partnership opportunities.
