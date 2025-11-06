@@ -1162,9 +1162,68 @@ export const products: Product[] = [
     inStock: true,
     stockQuantity: 110,
   },
+  // Cheeky Monkey Brewery - Margaret River products
+  {
+    id: '31',
+    breweryId: '51',
+    name: 'Cheeky Monkey Comic IIPA Tee',
+    slug: 'cheeky-monkey-comic-iipa-tee',
+    description: 'Bold graphic tee featuring Cheeky Monkey\'s Comic IIPA artwork.',
+    category: 'apparel',
+    type: 'tshirt',
+    price: 48.00, // Brewery: $40.00, Our price: $48.00 (20% markup)
+    images: [],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Black', 'White', 'Navy'],
+    inStock: true,
+    stockQuantity: 120,
+  },
+  {
+    id: '32',
+    breweryId: '51',
+    name: 'Cheeky Monkey Shakas T-Shirt',
+    slug: 'cheeky-monkey-shakas-tshirt',
+    description: 'Classic Cheeky Monkey Shakas design on premium cotton tee.',
+    category: 'apparel',
+    type: 'tshirt',
+    price: 45.60, // Brewery: $38.00, Our price: $45.60 (20% markup)
+    images: [],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Black', 'Maroon', 'Grey'],
+    inStock: true,
+    stockQuantity: 150,
+  },
+  {
+    id: '33',
+    breweryId: '51',
+    name: 'Cheeky Monkey Silverback Hoodie',
+    slug: 'cheeky-monkey-silverback-hoodie',
+    description: 'Premium hoodie featuring the legendary Silverback Imperial Stout design.',
+    category: 'apparel',
+    type: 'hoodie',
+    price: 84.00, // Brewery: $70.00, Our price: $84.00 (20% markup)
+    images: [],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Black', 'Charcoal'],
+    inStock: true,
+    stockQuantity: 80,
+  },
+  {
+    id: '34',
+    breweryId: '51',
+    name: 'Cheeky Hat',
+    slug: 'cheeky-hat',
+    description: 'Classic snapback cap with embroidered Cheeky Monkey logo.',
+    category: 'apparel',
+    type: 'hat',
+    price: 42.00, // Brewery: $35.00, Our price: $42.00 (20% markup)
+    images: [],
+    inStock: true,
+    stockQuantity: 100,
+  },
 ];
 
-// NOTE: This is a starter database of 67 breweries with 30 products.
+// NOTE: This is a starter database of 67 breweries with 34 products.
 // Total Australian breweries: ~500-700
 // This represents major breweries from all states.
 // More breweries and products can be added following the same structure.
